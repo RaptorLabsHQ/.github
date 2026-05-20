@@ -42,6 +42,17 @@
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
     </linearGradient>
 
+    <!-- Soft red glow for LABS — reduced blur so letters stay crisp -->
+    <filter id="labsglow" x="-8%" y="-40%" width="116%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur_soft"/>
+      <feColorMatrix  in="blur_soft" type="matrix"
+        values="1 0 0 0 0.8  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0" result="glow_soft"/>
+      <feMerge>
+        <feMergeNode in="glow_soft"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
     <!-- Red glow filter -->
     <filter id="redglow" x="-8%" y="-40%" width="116%" height="180%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="7"   result="blur_outer"/>
@@ -132,7 +143,7 @@
 
   <!-- LABS — intense red, clipped right -->
   <text font-family="'Courier New', Courier, monospace" font-size="11.6"
-        fill="url(#labsRed)" filter="url(#redglow)"
+        fill="url(#labsRed)" filter="url(#labsglow)"
         text-anchor="middle" xml:space="preserve" clip-path="url(#clipLabs)">
     <tspan x="480" y="82">██████╗  █████╗ ██████╗ ████████╗ ██████╗ ██████╗     ██╗      █████╗ ██████╗ ███████╗</tspan>
     <tspan x="480" dy="17">██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗    ██║     ██╔══██╗██╔══██╗██╔════╝</tspan>
@@ -148,7 +159,7 @@
   <!-- Tagline -->
   <text x="480" y="236" text-anchor="middle"
         font-family="'Courier New', Courier, monospace" font-size="12.5"
-        fill="url(#whiteGrad)" letter-spacing="6" opacity="0.92">
+        fill="#FFFFFF" letter-spacing="6" opacity="1">
     AGENTIC AI ENGINEERING AT PREDATOR SPEED
   </text>
 
@@ -157,7 +168,7 @@
 
   <!-- Bottom URL -->
   <text x="480" y="274" text-anchor="middle"
-        font-family="'Courier New', Courier, monospace" font-size="10"
-        fill="#CC0000" letter-spacing="4" opacity="0.8">raptorlabs.dev</text>
+        font-family="'Courier New', Courier, monospace" font-size="13"
+        fill="#FF2222" letter-spacing="5" opacity="1" font-weight="bold">raptorlabs.dev</text>
 
 </svg>
