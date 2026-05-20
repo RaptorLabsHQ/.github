@@ -1,0 +1,177 @@
+<svg viewBox="0 0 960 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+
+    <pattern id="dots" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="18" cy="18" r="0.9" fill="#CC0000" opacity="0.10"/>
+    </pattern>
+    <pattern id="scanlines" x="0" y="0" width="960" height="3" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="960" height="1" fill="#000000" opacity="0.15"/>
+    </pattern>
+
+    <!-- Chrome/white gradient for RAPTOR — red accent on top/bottom edges -->
+    <linearGradient id="chromeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#CC0000"/>
+      <stop offset="10%"  stop-color="#D8D8D8"/>
+      <stop offset="35%"  stop-color="#FFFFFF"/>
+      <stop offset="50%"  stop-color="#FFFFFF"/>
+      <stop offset="70%"  stop-color="#C8C8C8"/>
+      <stop offset="90%"  stop-color="#B0B0B0"/>
+      <stop offset="100%" stop-color="#CC0000"/>
+    </linearGradient>
+
+    <!-- Intense red gradient for LABS -->
+    <linearGradient id="labsRed" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FF2222"/>
+      <stop offset="40%"  stop-color="#CC0000"/>
+      <stop offset="100%" stop-color="#8B0000"/>
+    </linearGradient>
+
+    <!-- Border gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#CC0000" stop-opacity="0.0"/>
+      <stop offset="20%"  stop-color="#CC0000" stop-opacity="0.6"/>
+      <stop offset="50%"  stop-color="#FF1C1C" stop-opacity="0.9"/>
+      <stop offset="80%"  stop-color="#CC0000" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#CC0000" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- White fade for tagline -->
+    <linearGradient id="whiteGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.0"/>
+      <stop offset="25%"  stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="50%"  stop-color="#ffffff" stop-opacity="1.0"/>
+      <stop offset="75%"  stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- Soft red glow for LABS — reduced blur so letters stay crisp -->
+    <filter id="labsglow" x="-8%" y="-40%" width="116%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur_soft"/>
+      <feColorMatrix  in="blur_soft" type="matrix"
+        values="1 0 0 0 0.8  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0" result="glow_soft"/>
+      <feMerge>
+        <feMergeNode in="glow_soft"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Red glow filter -->
+    <filter id="redglow" x="-8%" y="-40%" width="116%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7"   result="blur_outer"/>
+      <feColorMatrix  in="blur_outer" type="matrix"
+        values="1 0 0 0 0.8  0 0 0 0 0  0 0 0 0 0  0 0 0 0.85 0" result="glow_outer"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur_inner"/>
+      <feColorMatrix  in="blur_inner" type="matrix"
+        values="1 0 0 0 0.95 0 0 0 0 0  0 0 0 0 0  0 0 0 1    0" result="glow_inner"/>
+      <feMerge>
+        <feMergeNode in="glow_outer"/>
+        <feMergeNode in="glow_inner"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- White glow filter for RAPTOR -->
+    <filter id="whiteglow" x="-8%" y="-40%" width="116%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+      <feColorMatrix  in="blur" type="matrix"
+        values="1 1 1 0 0  1 1 1 0 0  1 1 1 0 0  0 0 0 0.5 0" result="wglow"/>
+      <feMerge>
+        <feMergeNode in="wglow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip: left half = RAPTOR (chars 0–49 of ~85, split ≈ x 525) -->
+    <clipPath id="clipRaptor">
+      <rect x="0" y="0" width="524" height="300"/>
+    </clipPath>
+
+    <!-- Clip: right half = LABS -->
+    <clipPath id="clipLabs">
+      <rect x="524" y="0" width="436" height="300"/>
+    </clipPath>
+
+  </defs>
+
+  <!-- Background layers (transparent base) -->
+  <rect width="960" height="300" fill="url(#dots)"/>
+  <rect width="960" height="300" fill="url(#scanlines)"/>
+
+  <!-- Border -->
+  <rect x="2" y="2" width="956" height="296" fill="none" stroke="url(#borderGrad)" stroke-width="1.2"/>
+
+  <!-- Corner brackets -->
+  <polyline points="2,30 2,2 30,2"          fill="none" stroke="#CC0000" stroke-width="2.5" opacity="0.9"/>
+  <polyline points="930,2 958,2 958,30"      fill="none" stroke="#CC0000" stroke-width="2.5" opacity="0.9"/>
+  <polyline points="2,270 2,298 30,298"      fill="none" stroke="#CC0000" stroke-width="2.5" opacity="0.9"/>
+  <polyline points="930,298 958,298 958,270" fill="none" stroke="#CC0000" stroke-width="2.5" opacity="0.9"/>
+  <circle cx="2"   cy="2"   r="2.5" fill="#CC0000" opacity="0.95"/>
+  <circle cx="958" cy="2"   r="2.5" fill="#CC0000" opacity="0.95"/>
+  <circle cx="2"   cy="298" r="2.5" fill="#CC0000" opacity="0.95"/>
+  <circle cx="958" cy="298" r="2.5" fill="#CC0000" opacity="0.95"/>
+
+  <!-- Top label -->
+  <text x="480" y="22" text-anchor="middle"
+        font-family="'Courier New', Courier, monospace" font-size="9"
+        fill="#CC0000" letter-spacing="4" opacity="0.65">
+    ◈  RAPTOR LABS HQ  ◈  AGENTIC AI ENGINEERING  ◈  WORLDWIDE  ◈
+  </text>
+
+  <!-- ── ASCII ART ─────────────────────────────────────────────────────── -->
+
+  <!-- Red glow layer (full, behind everything) -->
+  <text font-family="'Courier New', Courier, monospace" font-size="11.6"
+        fill="#CC0000" filter="url(#redglow)"
+        text-anchor="middle" xml:space="preserve" opacity="0.55">
+    <tspan x="480" y="82">██████╗  █████╗ ██████╗ ████████╗ ██████╗ ██████╗     ██╗      █████╗ ██████╗ ███████╗</tspan>
+    <tspan x="480" dy="17">██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗    ██║     ██╔══██╗██╔══██╗██╔════╝</tspan>
+    <tspan x="480" dy="17">██████╔╝███████║██████╔╝   ██║   ██║   ██║██████╔╝    ██║     ███████║██████╔╝███████╗</tspan>
+    <tspan x="480" dy="17">██╔══██╗██╔══██║██╔═══╝    ██║   ██║   ██║██╔══██╗    ██║     ██╔══██║██╔══██╗╚════██║</tspan>
+    <tspan x="480" dy="17">██║  ██║██║  ██║██║        ██║   ╚██████╔╝██║  ██║    ███████╗██║  ██║██████╔╝███████║</tspan>
+    <tspan x="480" dy="17">╚═╝  ╚═╝╚═╝  ╚═╝╚═╝        ╚═╝    ╚═════╝ ╚═╝  ╚═╝    ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝</tspan>
+  </text>
+
+  <!-- RAPTOR — chrome/white, clipped left -->
+  <text font-family="'Courier New', Courier, monospace" font-size="11.6"
+        fill="url(#chromeGrad)" filter="url(#whiteglow)"
+        stroke="#990000" stroke-width="0.4" paint-order="stroke fill"
+        text-anchor="middle" xml:space="preserve" clip-path="url(#clipRaptor)">
+    <tspan x="480" y="82">██████╗  █████╗ ██████╗ ████████╗ ██████╗ ██████╗     ██╗      █████╗ ██████╗ ███████╗</tspan>
+    <tspan x="480" dy="17">██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗    ██║     ██╔══██╗██╔══██╗██╔════╝</tspan>
+    <tspan x="480" dy="17">██████╔╝███████║██████╔╝   ██║   ██║   ██║██████╔╝    ██║     ███████║██████╔╝███████╗</tspan>
+    <tspan x="480" dy="17">██╔══██╗██╔══██║██╔═══╝    ██║   ██║   ██║██╔══██╗    ██║     ██╔══██║██╔══██╗╚════██║</tspan>
+    <tspan x="480" dy="17">██║  ██║██║  ██║██║        ██║   ╚██████╔╝██║  ██║    ███████╗██║  ██║██████╔╝███████║</tspan>
+    <tspan x="480" dy="17">╚═╝  ╚═╝╚═╝  ╚═╝╚═╝        ╚═╝    ╚═════╝ ╚═╝  ╚═╝    ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝</tspan>
+  </text>
+
+  <!-- LABS — intense red, clipped right -->
+  <text font-family="'Courier New', Courier, monospace" font-size="11.6"
+        fill="url(#labsRed)"
+        text-anchor="middle" xml:space="preserve" clip-path="url(#clipLabs)">
+    <tspan x="480" y="82">██████╗  █████╗ ██████╗ ████████╗ ██████╗ ██████╗     ██╗      █████╗ ██████╗ ███████╗</tspan>
+    <tspan x="480" dy="17">██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗    ██║     ██╔══██╗██╔══██╗██╔════╝</tspan>
+    <tspan x="480" dy="17">██████╔╝███████║██████╔╝   ██║   ██║   ██║██████╔╝    ██║     ███████║██████╔╝███████╗</tspan>
+    <tspan x="480" dy="17">██╔══██╗██╔══██║██╔═══╝    ██║   ██║   ██║██╔══██╗    ██║     ██╔══██║██╔══██╗╚════██║</tspan>
+    <tspan x="480" dy="17">██║  ██║██║  ██║██║        ██║   ╚██████╔╝██║  ██║    ███████╗██║  ██║██████╔╝███████║</tspan>
+    <tspan x="480" dy="17">╚═╝  ╚═╝╚═╝  ╚═╝╚═╝        ╚═╝    ╚═════╝ ╚═╝  ╚═╝    ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝</tspan>
+  </text>
+
+  <!-- Divider -->
+  <line x1="80" y1="213" x2="880" y2="213" stroke="url(#borderGrad)" stroke-width="0.8"/>
+
+  <!-- Tagline -->
+  <text x="480" y="236" text-anchor="middle"
+        font-family="'Courier New', Courier, monospace" font-size="12.5"
+        fill="#FFFFFF" letter-spacing="6" opacity="1">
+    AGENTIC AI ENGINEERING AT PREDATOR SPEED
+  </text>
+
+  <!-- Bottom divider -->
+  <line x1="80" y1="252" x2="880" y2="252" stroke="url(#borderGrad)" stroke-width="0.6"/>
+
+  <!-- Bottom URL -->
+  <text x="480" y="274" text-anchor="middle"
+        font-family="'Courier New', Courier, monospace" font-size="13"
+        fill="#FF2222" letter-spacing="5" opacity="1" font-weight="bold">raptorlabs.dev</text>
+
+</svg>
