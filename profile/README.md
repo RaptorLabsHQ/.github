@@ -1,12 +1,139 @@
 <div align="center">
 
-<img src="./assets/banner.svg" alt="Raptor Labs — Agentic AI Engineering at Predator Speed" width="100%"/>
+<svg viewBox="0 0 960 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dots" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="18" cy="18" r="0.9" fill="#CC0000" opacity="0.10"/>
+    </pattern>
+    <pattern id="scanlines" x="0" y="0" width="960" height="3" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="960" height="1" fill="#000000" opacity="0.18"/>
+    </pattern>
+    <filter id="redglow" x="-8%" y="-40%" width="116%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur_outer"/>
+      <feColorMatrix in="blur_outer" type="matrix"
+        values="1 0 0 0 0.8  0 0 0 0 0  0 0 0 0 0  0 0 0 0.85 0" result="glow_outer"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur_inner"/>
+      <feColorMatrix in="blur_inner" type="matrix"
+        values="1 0 0 0 0.95  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="glow_inner"/>
+      <feMerge>
+        <feMergeNode in="glow_outer"/>
+        <feMergeNode in="glow_inner"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="subtleglow" x="-5%" y="-60%" width="110%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Red → White → Red gradient: hot white core bleeding into brand red -->
+    <linearGradient id="asciiGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#7a0000"/>
+      <stop offset="18%"  stop-color="#CC0000"/>
+      <stop offset="36%"  stop-color="#FF5555"/>
+      <stop offset="50%"  stop-color="#FFFFFF"/>
+      <stop offset="64%"  stop-color="#FF5555"/>
+      <stop offset="82%"  stop-color="#CC0000"/>
+      <stop offset="100%" stop-color="#7a0000"/>
+    </linearGradient>
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#CC0000" stop-opacity="0.0"/>
+      <stop offset="20%"  stop-color="#CC0000" stop-opacity="0.6"/>
+      <stop offset="50%"  stop-color="#FF1C1C" stop-opacity="0.9"/>
+      <stop offset="80%"  stop-color="#CC0000" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#CC0000" stop-opacity="0.0"/>
+    </linearGradient>
+    <linearGradient id="whiteGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.0"/>
+      <stop offset="30%"  stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="50%"  stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="70%"  stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Base layers -->
+  <rect width="960" height="300" fill="#0a0a0a"/>
+  <rect width="960" height="300" fill="url(#dots)"/>
+  <rect width="960" height="300" fill="url(#scanlines)"/>
+
+  <!-- Outer border -->
+  <rect x="2" y="2" width="956" height="296" fill="none" stroke="url(#borderGrad)" stroke-width="1.2"/>
+
+  <!-- Corner brackets -->
+  <polyline points="2,30 2,2 30,2"       fill="none" stroke="#CC0000" stroke-width="2.5" opacity="0.9"/>
+  <polyline points="930,2 958,2 958,30"   fill="none" stroke="#CC0000" stroke-width="2.5" opacity="0.9"/>
+  <polyline points="2,270 2,298 30,298"   fill="none" stroke="#CC0000" stroke-width="2.5" opacity="0.9"/>
+  <polyline points="930,298 958,298 958,270" fill="none" stroke="#CC0000" stroke-width="2.5" opacity="0.9"/>
+  <circle cx="2"   cy="2"   r="2.5" fill="#CC0000" opacity="0.95"/>
+  <circle cx="958" cy="2"   r="2.5" fill="#CC0000" opacity="0.95"/>
+  <circle cx="2"   cy="298" r="2.5" fill="#CC0000" opacity="0.95"/>
+  <circle cx="958" cy="298" r="2.5" fill="#CC0000" opacity="0.95"/>
+
+  <!-- Top label -->
+  <text x="480" y="22" text-anchor="middle"
+        font-family="'Courier New', Courier, monospace" font-size="9"
+        fill="#CC0000" letter-spacing="5" opacity="0.65">
+    ◈  RAPTOR LABS HQ  ◈  IRELAND BASED · WORLDWIDE OPERATIONAL  ◈
+  </text>
+
+  <!-- ASCII art — red glow layer -->
+  <text font-family="'Courier New', Courier, monospace" font-size="11.6"
+        fill="#CC0000" filter="url(#redglow)"
+        text-anchor="middle" xml:space="preserve" opacity="0.6">
+    <tspan x="480" y="82">██████╗  █████╗ ██████╗ ████████╗ ██████╗ ██████╗     ██╗      █████╗ ██████╗ ███████╗</tspan>
+    <tspan x="480" dy="17">██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗    ██║     ██╔══██╗██╔══██╗██╔════╝</tspan>
+    <tspan x="480" dy="17">██████╔╝███████║██████╔╝   ██║   ██║   ██║██████╔╝    ██║     ███████║██████╔╝███████╗</tspan>
+    <tspan x="480" dy="17">██╔══██╗██╔══██║██╔═══╝    ██║   ██║   ██║██╔══██╗    ██║     ██╔══██║██╔══██╗╚════██║</tspan>
+    <tspan x="480" dy="17">██║  ██║██║  ██║██║        ██║   ╚██████╔╝██║  ██║    ███████╗██║  ██║██████╔╝███████║</tspan>
+    <tspan x="480" dy="17">╚═╝  ╚═╝╚═╝  ╚═╝╚═╝        ╚═╝    ╚═════╝ ╚═╝  ╚═╝    ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝</tspan>
+  </text>
+
+  <!-- ASCII art — sharp white-to-red gradient layer on top -->
+  <text font-family="'Courier New', Courier, monospace" font-size="11.6"
+        fill="url(#asciiGrad)"
+        text-anchor="middle" xml:space="preserve">
+    <tspan x="480" y="82">██████╗  █████╗ ██████╗ ████████╗ ██████╗ ██████╗     ██╗      █████╗ ██████╗ ███████╗</tspan>
+    <tspan x="480" dy="17">██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗    ██║     ██╔══██╗██╔══██╗██╔════╝</tspan>
+    <tspan x="480" dy="17">██████╔╝███████║██████╔╝   ██║   ██║   ██║██████╔╝    ██║     ███████║██████╔╝███████╗</tspan>
+    <tspan x="480" dy="17">██╔══██╗██╔══██║██╔═══╝    ██║   ██║   ██║██╔══██╗    ██║     ██╔══██║██╔══██╗╚════██║</tspan>
+    <tspan x="480" dy="17">██║  ██║██║  ██║██║        ██║   ╚██████╔╝██║  ██║    ███████╗██║  ██║██████╔╝███████║</tspan>
+    <tspan x="480" dy="17">╚═╝  ╚═╝╚═╝  ╚═╝╚═╝        ╚═╝    ╚═════╝ ╚═╝  ╚═╝    ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝</tspan>
+  </text>
+
+  <!-- Divider -->
+  <line x1="80" y1="213" x2="880" y2="213" stroke="url(#borderGrad)" stroke-width="0.8"/>
+
+  <!-- Tagline -->
+  <text x="480" y="236" text-anchor="middle"
+        font-family="'Courier New', Courier, monospace" font-size="12.5"
+        fill="url(#whiteGrad)" letter-spacing="6" opacity="0.92"
+        filter="url(#subtleglow)">
+    AGENTIC AI ENGINEERING AT PREDATOR SPEED
+  </text>
+
+  <!-- Bottom divider -->
+  <line x1="80" y1="252" x2="880" y2="252" stroke="url(#borderGrad)" stroke-width="0.6"/>
+
+  <!-- Footer meta -->
+  <text x="300" y="272" text-anchor="middle"
+        font-family="'Courier New', Courier, monospace" font-size="9.5"
+        fill="#CC0000" letter-spacing="3" opacity="0.8">raptorlabs.dev</text>
+  <text x="480" y="272" text-anchor="middle"
+        font-family="'Courier New', Courier, monospace" font-size="9.5"
+        fill="#444444" letter-spacing="1">◆</text>
+  <text x="660" y="272" text-anchor="middle"
+        font-family="'Courier New', Courier, monospace" font-size="9.5"
+        fill="#888888" letter-spacing="3" opacity="0.75">IRELAND · WORLDWIDE</text>
+</svg>
 
 <br/>
 
-<img src="https://img.shields.io/badge/AGENTIC_AI-ENGINEERING-CC0000?style=for-the-badge&labelColor=0a0a0a" alt="Agentic AI Engineering" />
-<img src="https://img.shields.io/badge/PREDATOR-SPEED-CC0000?style=for-the-badge&labelColor=0a0a0a" alt="Predator Speed" />
-<img src="https://img.shields.io/badge/FULLY-AGENTIC-CC0000?style=for-the-badge&labelColor=0a0a0a" alt="Fully Agentic" />
+<img src="https://img.shields.io/badge/AGENTIC_AI-ENGINEERING-CC0000?style=for-the-badge&labelColor=0a0a0a" />
+<img src="https://img.shields.io/badge/PREDATOR-SPEED-CC0000?style=for-the-badge&labelColor=0a0a0a" />
+<img src="https://img.shields.io/badge/FULLY-AGENTIC-CC0000?style=for-the-badge&labelColor=0a0a0a" />
 
 <br/><br/>
 
@@ -126,13 +253,13 @@ raptor-code run
 **— AI & Intelligence —**
 
 ![OpenAI](https://img.shields.io/badge/OpenAI-0a0a0a?style=for-the-badge&logo=openai&logoColor=CC0000)
-![Anthropic](https://img.shields.io/badge/Anthropic-0a0a0a?style=for-the-badge&logoColor=CC0000&color=0a0a0a)
+![Anthropic](https://img.shields.io/badge/Anthropic-CC0000?style=for-the-badge&labelColor=0a0a0a&logoColor=white)
 ![Google AI](https://img.shields.io/badge/Google_AI-0a0a0a?style=for-the-badge&logo=google&logoColor=CC0000)
 ![HuggingFace](https://img.shields.io/badge/HuggingFace-0a0a0a?style=for-the-badge&logo=huggingface&logoColor=CC0000)
 
 **— Developer Environment & Tooling —**
 
-![Warp](https://img.shields.io/badge/Warp.dev-0a0a0a?style=for-the-badge&logoColor=CC0000&color=0a0a0a)
+![Warp](https://img.shields.io/badge/Warp.dev-CC0000?style=for-the-badge&labelColor=0a0a0a&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux_Native_Ops-0a0a0a?style=for-the-badge&logo=linux&logoColor=CC0000)
 ![Docker](https://img.shields.io/badge/Docker-0a0a0a?style=for-the-badge&logo=docker&logoColor=CC0000)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-0a0a0a?style=for-the-badge&logo=githubactions&logoColor=CC0000)
@@ -155,9 +282,9 @@ raptor-code run
 **— Web3 & Blockchain —**
 
 ![Web3](https://img.shields.io/badge/Web3-0a0a0a?style=for-the-badge&logo=web3.js&logoColor=CC0000)
-![Blockchain](https://img.shields.io/badge/Blockchain-0a0a0a?style=for-the-badge&logoColor=CC0000&color=0a0a0a)
+![Blockchain](https://img.shields.io/badge/Blockchain-CC0000?style=for-the-badge&labelColor=0a0a0a)
 ![Ethereum](https://img.shields.io/badge/Ethereum-0a0a0a?style=for-the-badge&logo=ethereum&logoColor=CC0000)
-![QuickNode](https://img.shields.io/badge/QuickNode-0a0a0a?style=for-the-badge&logoColor=CC0000&color=0a0a0a)
+![QuickNode](https://img.shields.io/badge/QuickNode-CC0000?style=for-the-badge&labelColor=0a0a0a)
 
 **— Data & APIs —**
 
@@ -165,23 +292,6 @@ raptor-code run
 ![Redis](https://img.shields.io/badge/Redis-0a0a0a?style=for-the-badge&logo=redis&logoColor=CC0000)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0a0a0a?style=for-the-badge&logo=postgresql&logoColor=CC0000)
 ![Supabase](https://img.shields.io/badge/Supabase-0a0a0a?style=for-the-badge&logo=supabase&logoColor=CC0000)
-
-</div>
-
----
-
-## 📊 Quality Standards
-
-<div align="center">
-
-| Metric | Score | Status |
-|--------|-------|--------|
-| 🚀 **Page Speed** | 98/100 | ✅ Blazing |
-| 🛡️ **Security Headers** | A+ | ✅ Hardened |
-| 📱 **Mobile Score** | 100/100 | ✅ Flawless |
-| ♿ **Accessibility** | 95/100 | ✅ WCAG 2.1 AA |
-| 🔍 **SEO** | 100/100 | ✅ Optimized |
-| ⚡ **Core Web Vitals** | All Green | ✅ Passing |
 
 </div>
 
@@ -226,50 +336,7 @@ We host hackathons, ship open source, and welcome contributors who treat speed a
 
 ---
 
-## 📞 Work With Us
-
 <div align="center">
-
-```bash
-$ ./contact --raptorlabs
-
-> Connecting to Raptor Labs HQ — Dublin, Ireland 🇮🇪
-> Protocol   : HTTPS / TLS 1.3
-> Reach      : Worldwide 🌍
-> Status     : ONLINE — AGENTS READY 🦖
-
-[!] REACH OUT FOR:
-    ├── Agentic AI product engineering
-    ├── Enterprise software builds
-    ├── MVP development — shipped in days
-    ├── Autonomous agent architecture
-    ├── Web3 & blockchain integrations
-    ├── Open source collaboration & hackathons
-    └── Anything that deserves predator speed
-```
-
-### 🔴 Ready to Build at Predator Speed?
-
-**📧 [info@raptorlabs.dev](mailto:info@raptorlabs.dev)**
-
-**🌐 [raptorlabs.dev](https://raptorlabs.dev)**
-
-</div>
-
----
-
-<div align="center">
-
-```
-[SYSTEM]   Raptor Labs Engineering HQ — Online
-[BASE]     Ireland 🇮🇪 · Worldwide Operational 🌍
-[MODE]     Fully Agentic
-[AGENTS]   Deployed & Hunting
-[STATUS]   Building. Shipping. Scaling.
-[UPTIME]   99.99%
-```
-
-<br/>
 
 <img src="https://img.shields.io/badge/BUILT_BY-AGENTS-CC0000?style=for-the-badge&labelColor=0a0a0a" />
 <img src="https://img.shields.io/badge/SHIPPED_AT-PREDATOR_SPEED-CC0000?style=for-the-badge&labelColor=0a0a0a" />
