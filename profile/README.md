@@ -12,7 +12,7 @@
 ```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║   🦖  Autonomous agents that build, deploy & scale at predator speed    ║
-║        Ireland based  ·  Worldwide operational  ·  Always building      ║
+║              Worldwide operational  ·  Always building                  ║
 ╚══════════════════════════════════════════════════════════════════════════╝
 ```
 
